@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src='./js/jQuery-min.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="window">
+            <ul class="images">
+                <li><img src="./imgs/macbook.jpg" alt="pic1"></li>
+                <li><img src="./imgs/iphone.jpg" alt="pic2"></li>
+                <li><img src="./imgs/imac.jpg" alt="pic3"></li>
+                <li><img src="./imgs/info.jpg" alt="pic4"></li>
+            </ul>
+        </div>
+        <nav>
+            <ul class="list">
+                <li><img src="./imgs/1.png" alt="#"></li>
+                <li><img src="./imgs/2.png" alt="#"></li>
+                <li><img src="./imgs/3.png" alt="#"></li>
+                <li><img src="./imgs/4.png" alt="#"></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        let $images = $('.images')
+        let $img = $('.images>li')
+        let $list = $('.list>li')
+
+
+        $list.on('click', (e) => {
+            var index = $(e.currentTarget).index()
+            console.log(index)
+            $(e.currentTarget).addClass('active').siblings().removeClass('active')
+            changeSlide(index)
+        })
+
+
+        ///////////////////////////////////////////////////////////
+
+
+        function changeSlide(index) {
+            $images.css({
+                transform: `translateX(${-index*920}px)`
+            })
+        }
+    </script>
+</body>
+
+</html>
